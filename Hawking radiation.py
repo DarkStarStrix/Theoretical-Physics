@@ -90,7 +90,7 @@ print(t)
 line = np.linspace(0, 100, 100)  # 100 evenly spaced numbers between 0 and 100
 x, y = np.meshgrid(line, line)  # create a grid of points
 z = (5120 * math.pi * G ** 2 * x ** 3) / (
-            hbar * c ** 4 * (m + mp + mn) ** 2)  # calculate the z values for each point of the grid
+        hbar * c ** 4 * (m + mp + mn) ** 2)  # calculate the z values for each point of the grid
 fig = plt.figure()  # create a figure
 ax = fig.add_subplot(111, projection='3d')  # create a 3d subplot
 ax.plot_surface(x, y, z)  # plot the surface
@@ -98,3 +98,17 @@ ax.set_xlabel('Mass of black hole (kg)')  # label the x-axis
 ax.set_ylabel('Time (years)')  # label the y axis
 ax.set_zlabel('Mass of black hole (kg)')  # label the z axis
 plt.show()  # show the plot
+
+
+# make a new module that calculates the lifetime of a black hole based on its mass
+def hawking_radiation(M):
+    # mass of electron
+    m = scipy.constants.m_e
+    # mass of proton
+    mp = scipy.constants.m_p
+    # mass of neutron
+    mn = scipy.constants.m_n
+
+    # calculate the lifetime of the black hole
+    t = (5120 * math.pi * G ** 2 * M ** 3) / (hbar * c ** 4 * (m + mp + mn) ** 2)
+    return t
