@@ -91,4 +91,3 @@ fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 ax.scatter(lorentz_force(q, v, B, E)[0], lorentz_force(q, v, B, E)[1], lorentz_force(q, v, B, E)[2], c='r', marker='o')
 plt.show()
-
